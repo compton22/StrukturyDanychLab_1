@@ -362,7 +362,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# DLUGI's ignored files
 *.sln
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+
+# compton's ignored files
