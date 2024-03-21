@@ -398,8 +398,8 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Maksymilian ignore added
-StrukturyDanychLab_1\LAB_1.sln
-StrukturyDanychLab_1\LAB_1\LAB_1.vcxproj
-StrukturyDanychLab_1\LAB_1\LAB_1.vcxproj.filters
-StrukturyDanychLab_1\LAB_1\LAB_1.vcxproj.user
+LAB_1.sln
+LAB_1\LAB_1.vcxproj
+LAB_1\LAB_1.vcxproj.filters
+LAB_1\LAB_1.vcxproj.user
 
