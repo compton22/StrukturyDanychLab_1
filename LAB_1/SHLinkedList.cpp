@@ -133,6 +133,11 @@ void SHLinkedList::delat(unsigned place) {
 		// jezeli znaleziony element przed elementem place
 		if (i+1 == place) {
 
+			// exception jezeli temp == ostatniemu elementowi w tablicy a szukamy elementu jeden przed
+			if (temp->next_ == nullptr) {
+				break;
+			}
+
 			// jezeli next_.next_ nie isteniej znaczy ze poszukiwany element jest ostatni na liscie wiec dellback()
 			if (temp->next_->next_ == nullptr) {
 				delback();

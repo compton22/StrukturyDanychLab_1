@@ -1,0 +1,23 @@
+int main() {
+	// -----------------------------------------------------PARAMETRY-----------------------------------------------------
+	const unsigned copies = 1000000;
+	unsigned positions = 30;
+	SHLinkedList* list = new SHLinkedList[copies];
+	Zapis plik("SHLinkedList_addfront.csv");
+
+	// -----------------------------------------------------TESTY-----------------------------------------------------
+	for (unsigned position = 0; position < positions; position++) {
+		printf("____________dla %d elementu dodanego do tablicy____________\n\n\n", position);
+
+		clock_t start = clock();
+		for (unsigned i = 0; i < copies; i++) {
+			list[i].addfront((i + 1) * (position + 1));
+		}
+		clock_t duration = clock() - start;
+
+		plik.shot(position, unsigned(duration), copies);
+
+	}
+	list[0].printAll();
+
+}

@@ -7,7 +7,7 @@
 
 Zapis::Zapis(std::string nazwa_pliku) : nazwa_pliku_(nazwa_pliku) {
 	file_.open(nazwa_pliku_);
-	file_ << "lp;ilosc;czas ca³kowity(ms);czas/zapis(ms)\n";
+	file_ << "pozycja;ilosc;czas ca³kowity(ms);czas/ilosc(ms)\n";
 	file_.close();
 };
 
