@@ -2,8 +2,8 @@ int main() {
 	// -----------------------------------------------------PARAMETRY-----------------------------------------------------
 	const unsigned copies = 100000;
 	unsigned positions = 100;
-	SHLinkedList* list = new SHLinkedList[copies];
-	Zapis plik("pliki_csv/SHLinkedList_addat2.csv");
+	SHTLinkedList* list = new SHTLinkedList[copies];
+	Zapis plik("pliki_csv/SHTLinkedList_delback.csv");
 
 	unsigned base_size = 1000;
 	for (unsigned position = 0; position < base_size; position++) {
@@ -11,30 +11,21 @@ int main() {
 			list[i].addfront(5);
 		}
 	}
-	
 
 	// -----------------------------------------------------TESTY-----------------------------------------------------
 	for (unsigned position = 0; position < positions; position++) {
 		printf("____________dla %d elementu dodanego do tablicy____________\n\n\n", position);
-		// generowanie random seed
-		//unsigned seed = time(NULL) + position;
-		//srand(seed);
-		//unsigned random_place = rand() % base_size;
-
-		std::random_device rd;
-		std::uniform_int_distribution<unsigned> dist(0, 100 + position);
-		unsigned random_place = dist(rd); unsigned seed = 0;
-		std::cout << seed << "\n" << random_place << "\n";
 
 		clock_t start = clock();
 		for (unsigned i = 0; i < copies; i++) {
-			list[i].addat(random_place, (i + 1) * (position + 1));
+			list[i].delback();
+			//(i + 1) * (position + 1)
 		}
 		clock_t duration = clock() - start;
 
 		plik.shot(position, unsigned(duration), copies);
 
 	}
-	//list[0].printAll();
+	list[0].printAll();
 
 }

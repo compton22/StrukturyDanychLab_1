@@ -24,6 +24,7 @@ void SDHTLinkedList::addfront(int data) {
 	newnode->next_ = head_;
 
 	head_ = newnode;
+	size_++;
 }
 
 // dodaj warunki START = size_ i I = -1
@@ -88,22 +89,18 @@ void SDHTLinkedList::addback(int data) {
 }
 
 void SDHTLinkedList::delback() {
+	if (tail_ == nullptr) return;
 	//tworzenie tymczasowego node wskazuj¹cego najpierw na head_
 	node* temp;
-	temp = head_;
+	temp = tail_;
 
 	node* prevtemp;
 	prevtemp = temp;
 
-	//szukanie pustego next_
-	while (temp->next_) {
-		prevtemp = temp;
-		temp = temp->next_;
-	}
-
-	//jezeli lista pusta zwroc 0
-	if (!head_ || temp == head_) {
-		delete head_;
+	//jezeli lista pusta
+	if (tail_ != nullptr || temp == tail_) {
+		delete tail_;
+		tail_ = nullptr;
 		head_ = nullptr;
 		size_--;
 		return;

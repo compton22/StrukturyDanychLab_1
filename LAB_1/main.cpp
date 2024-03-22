@@ -13,8 +13,8 @@ int main() {
 	// -----------------------------------------------------PARAMETRY-----------------------------------------------------
 	const unsigned copies = 100000;
 	unsigned positions = 100;
-	SHLinkedList* list = new SHLinkedList[copies];
-	Zapis plik("pliki_csv/SHLinkedList_delat.csv");
+	SDHTLinkedList* list = new SDHTLinkedList[copies];
+	Zapis plik("pliki_csv/SDHTLinkedList_delat.csv");
 
 	unsigned base_size = 1000;
 	for (unsigned position = 0; position < base_size; position++) {
@@ -22,14 +22,14 @@ int main() {
 			list[i].addfront(5);
 		}
 	}
-	
+
 
 	// -----------------------------------------------------TESTY-----------------------------------------------------
 	for (unsigned position = 0; position < positions; position++) {
 		printf("____________dla %d elementu dodanego do tablicy____________\n\n\n", position);
 
 		std::random_device rd;
-		std::uniform_int_distribution<unsigned> dist(0, 100 - (position+1));
+		std::uniform_int_distribution<unsigned> dist(0, 100 - (position + 1));
 		unsigned random_place = dist(rd); unsigned seed = 0;
 		std::cout << seed << "\n" << random_place << "\n";
 

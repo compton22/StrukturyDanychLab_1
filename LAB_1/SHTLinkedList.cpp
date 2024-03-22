@@ -2,7 +2,7 @@
 #include "SHTLinkedList.hpp"
 #include "iostream"
 
-SHTLinkedList::SHTLinkedList() : head_(nullptr), tail_(nullptr), current_(nullptr) {
+SHTLinkedList::SHTLinkedList() : head_(nullptr), tail_(nullptr), current_(nullptr), size_(0) {
 	//head_ = new SHTnode();
 	//tail_ = head_;
 	//if (!head_) {
@@ -96,23 +96,18 @@ void SHTLinkedList::addback(int data) {
 }
 
 void SHTLinkedList::delback() {
-	if (head_ == nullptr) return;
+	if (tail_ == nullptr) return;
 	//tworzenie tymczasowego node wskazuj¹cego najpierw na head_
 	SHTnode* temp;
-	temp = head_;
+	temp = tail_;
 
 	SHTnode* prevtemp;
 	prevtemp = temp;
 
-	//szukanie pustego next_
-	while (temp->next_) {
-		prevtemp = temp;
-		temp = temp->next_;
-	}
-
 	//jezeli lista pusta
-	if (!head_ || temp == head_) {
-		delete head_;
+	if (tail_ != nullptr || temp == tail_) {
+		delete tail_;
+		tail_ = nullptr;
 		head_ = nullptr;
 		size_--;
 		return;
